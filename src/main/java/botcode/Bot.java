@@ -1,5 +1,4 @@
 package botcode;
-import io.github.cdimascio.dotenv.Dotenv;
 import org.telegram.telegrambots.bots.TelegramLongPollingBot;
 import org.telegram.telegrambots.meta.TelegramBotsApi;
 import org.telegram.telegrambots.meta.api.methods.send.SendMessage;
@@ -14,11 +13,9 @@ public class Bot extends TelegramLongPollingBot {
         return "demon_dice_bot";
     }
 
-    Dotenv dotenv = Dotenv.load();
-
     @Override
     public String getBotToken() {
-        return dotenv.get("BOT_TOKEN");
+        return System.getenv("BOT_TOKEN_");
     }
 
     @Override
